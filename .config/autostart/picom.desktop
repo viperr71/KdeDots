@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Picom
+Comment=Picom Compositor
+Exec=picom -CG --config ~/.config/picom.conf
+OnlyShowIn=KDE;
+StartupNotify=false
+Terminal=false
+Hidden=false
+Name[en_US.UTF-8]=Picom.desktop

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=i3lock.desktop
+Comment=i3lock desktop utility
+Exec=xautolock -time 30 -locker /home/vic/.config/i3lock/lock.sh
+Type=Application
+X-GNOME-Autostart-enabled=true
+X-KDE-autostart-phase-1

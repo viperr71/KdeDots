@@ -1,0 +1,1 @@
+/home/vic/.config/polybar/launch.sh

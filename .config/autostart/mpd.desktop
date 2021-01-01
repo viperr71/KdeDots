@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=mpd
+Comment=music player daemon
+Exec= ! -s ~/.config/mpd/pid ] && mpd
+OnlyShowIn=KDE;
+StartupNotify=false
+Terminal=false
+Hidden=false
+Name[en_US.UTF-8]=mpd.desktop

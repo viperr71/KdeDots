@@ -1,0 +1,1 @@
+/home/vic/.config/bspwm/scripts/fixMonitor.sh

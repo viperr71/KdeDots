@@ -1,0 +1,141 @@
+[
+    {
+        "class": "tree_row",
+        "layer0.tint": [
+            70,
+            75,
+            81
+        ]
+    },
+    {
+        "class": "sidebar_container",
+        "layer0.opacity": 1.0,
+        "layer0.tint": [
+            70,
+            75,
+            81
+        ]
+    },
+    {
+        "class": "sidebar_tree",
+        "dark_content": true,
+        "layer0.opacity": 1,
+        "layer0.tint": [
+            20,
+            25,
+            31
+        ]
+    },
+    {
+        "class": "sidebar_label",
+        "color": [
+            200,
+            205,
+            211
+        ]
+    },
+    {
+        "class": "sidebar_heading",
+        "shadow_offset": [
+            0,
+            0
+        ]
+    },
+    {
+        "class": "disclosure_button_control",
+        "layer0.tint": [
+            110,
+            115,
+            121
+        ],
+        "layer1.tint": [
+            170,
+            175,
+            181
+        ]
+    },
+    {
+        "class": "fold_button_control",
+        "layer0.tint": [
+            110,
+            115,
+            121
+        ],
+        "layer1.tint": [
+            170,
+            175,
+            181
+        ]
+    },
+    {
+        "class": "scroll_tabs_left_button",
+        "layer0.tint": [
+            140,
+            145,
+            151
+        ],
+        "layer1.tint": [
+            200,
+            205,
+            211
+        ]
+    },
+    {
+        "class": "scroll_tabs_right_button",
+        "layer0.tint": [
+            140,
+            145,
+            151
+        ],
+        "layer1.tint": [
+            200,
+            205,
+            211
+        ]
+    },
+    {
+        "class": "show_tabs_dropdown_button",
+        "layer0.tint": [
+            140,
+            145,
+            151
+        ],
+        "layer1.tint": [
+            200,
+            205,
+            211
+        ]
+    },
+    {
+        "class": "icon_file_type",
+        "layer0.tint": [
+            140,
+            145,
+            151
+        ]
+    },
+    {
+        "class": "icon_folder",
+        "layer0.tint": [
+            110,
+            115,
+            121
+        ]
+    },
+    {
+        "class": "sidebar_heading",
+        "color": [
+            110,
+            115,
+            121
+        ]
+    },
+    {
+        "border_color": [
+            110,
+            115,
+            121
+        ],
+        "class": "grid_layout_control"
+    }
+]

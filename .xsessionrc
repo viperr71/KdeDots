@@ -1,0 +1,5 @@
+#!/bin/sh
+
+nitrogen --restore &
+picom -b &
+#feh --no-fehbg --bg-scale '/home/vic/Pictures/Wallpapers/wall.jpg' '/home/vic/Pictures/Wallpapers/wall.jpg' 

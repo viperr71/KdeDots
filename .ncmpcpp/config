@@ -1,0 +1,99 @@
+### Mpd ###
+
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+mpd_music_dir = "~/Music"
+mpd_connection_timeout = "5"
+mpd_crossfade_time = "5"
+
+### Settings ###
+
+song_status_format = "{%a - %t}"
+song_list_format = "$(72){%a} $(1) {%t} $R "
+song_window_title_format = "{%a - }{%t}|{%f}"
+
+user_interface = "classic"
+playlist_display_mode = "classic"
+
+message_delay_time = "1"
+playlist_disable_highlight_delay = 1
+
+now_playing_prefix = "$(72)"
+now_playing_suffix = "●$0"
+selected_item_prefix = "$(1)"
+current_item_prefix = "$(1)$r"
+browser_playlist_prefix = "$1»$1 "
+
+cyclic_scrolling = "yes"
+use_console_editor = "yes"
+discard_colors_if_item_is_selected = "yes"
+
+autocenter_mode = "yes"
+header_visibility = "yes" 
+statusbar_visibility = "yes"
+titles_visibility = "yes"
+display_bitrate = "yes"
+playlist_separate_albums = "no"
+ask_before_clearing_playlists = "no"
+
+### Colors ###
+
+colors_enabled = "yes"
+volume_color = "white"
+statusbar_color = "white"
+header_window_color = "white"
+main_window_color = "white"
+empty_tag_color = "white"
+color2 = "10"
+color1 = "white"
+state_line_color = "white"
+state_flags_color = "white"
+window_border_color = "white"
+active_window_border = "cyan"
+alternative_ui_separator_color = "black"
+progressbar_color = "1"
+progressbar_elapsed_color = "15"
+visualizer_color = cyan,white,white,white,white,white
+
+### Progressbar ###
+
+#progressbar_look = "░█ "
+#progressbar_look = "=>"
+#progressbar_look = "─- "
+#progressbar_look = "▒▒░"
+#progressbar_look = "┅┅┄"
+#progressbar_look = "─⊙┄"
+#progressbar_look = "─➞─"
+#progressbar_look = "─┅─"
+#progressbar_look = "▪▪▪"
+#progressbar_look = "▪▪▫"
+progressbar_look = "───"
+#progressbar_look = "▁▁▁"
+#progressbar_look = "‒‒‒"
+#progressbar_look = "■◣ "
+#progressbar_look = "◈◆◇"
+#progressbar_look = "→→"
+
+### Visualizer ###
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30"
+visualizer_fps = 60
+visualizer_autoscale = no
+#visualizer_type = "wave" (spectrum/wave/ellipse)
+visualizer_type = "spectrum" (spectrum/wave/ellipse)
+#visualizer_type = "ellipse" (spectrum/wave/ellipse)
+visualizer_in_stereo = "yes"
+#visualizer_look = "●▮"
+#visualizer_look = "+|"
+visualizer_look = "::"
+visualizer_spectrum_smooth_look = no
+visualizer_spectrum_dft_size = 3
+visualizer_spectrum_gain = 10
+
+##Left-most frequency of visualizer in Hz, must be less than HZ MAX
+visualizer_spectrum_hz_min = 20
+
+## Right-most frequency of visualizer in Hz, must be greater than HZ MIN
+visualizer_spectrum_hz_max = 20000

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1579898563427645-1</unique-id>
+	<command>/usr/bin/termite %f</command>
+	<description>open Termite</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>krusader_root</icon>
+	<name>Open Thunar As Root Here</name>
+	<unique-id>1579901573799628-1</unique-id>
+	<command>pkexec thunar</command>
+	<description>Open Thunar As Root</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>stock_folder-copy</icon>
+	<name>Copy To...</name>
+	<unique-id>1580507157496100-1</unique-id>
+	<command>cp -r %F &quot;$(zenity --file-selection --directory)&quot;</command>
+	<description>Copy this item</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>stock_folder-move</icon>
+	<name>Move To...</name>
+	<unique-id>1580507157496108-2</unique-id>
+	<command>mv %F &quot;$(zenity --file-selection --directory)&quot;</command>
+	<description>Move this item</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>
