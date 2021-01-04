@@ -81,7 +81,7 @@ line-color = #f00
 ;border-left-size = 25
 ;border-right-size = 25
 ;border-top-size = 0
-;border-bottom-size = 25
+;border-bottom-size = 2
 border-color = #00000000
 
 padding-left = 0
@@ -107,7 +107,7 @@ font-9  = "Monaco:pixelsize=9;2"
 font-10 = "unifont:fontformat=truetype:size=8:antialias=false;0"
 font-11 = "siji:pixelsize=9;1"
 
-modules-left = rofi ewmh xwindow
+modules-left = rofi ewmh xmonad xwindow 
 modules-center = mpd spotify 
 modules-right = arrow1 kernel arrow2 memory arrow3 cpu arrow2 pavolume arrow3 wired-network arrow2 weather arrow3 utilities  arrow2 date arrow3 sysmenu
 
@@ -379,11 +379,7 @@ enable-click = true
 enable-scroll = true
 reverse-scroll = true
 
-;extra icons to choose from
-;http://fontawesome.io/cheatsheet/
-;       v     
-
-icon-0 = 0_1:Browser;1  
+icon-0 = 0_1:Browser;1 
 icon-1 = 0_2:Home;2 
 icon-2 = 0_3:Code;3 
 icon-3 = 0_4:Full;4 
@@ -693,10 +689,8 @@ content-foreground = ${colors.foreground}
 content-background = ${colors.grey}
 content-padding = 2
 
-click-left = ~/.config/rofi/scripts/utilities_rofi.sh &
-
-click-right = "rofi -show drun -theme ~/.config/rofi/themes/center >/dev/null 2>&1 &"
-
+click-left = ~/.config/rofi/scripts/util.sh &
+click-right = ~/.dmenu/dmenu-edit-configs.sh &
 ###############################################################################
 
 [module/volume]

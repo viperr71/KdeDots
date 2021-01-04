@@ -388,7 +388,7 @@ keys' = [--recompile xmonad
 
           ((modm .|. controlMask,  xK_r), spawn "xmonad --recompile")
         , ((modm .|. shiftMask,    xK_r), spawn "xmonad --restart")
-        , ((modm .|. shiftMask,    xK_q), io exitSuccess)
+        , ((modm .|. shiftMask,    xK_e), io exitSuccess)
          -- , ((modm, xK_q), restart "xmonad" True)
 
          -- Grid Select 
@@ -434,6 +434,8 @@ keys' = [--recompile xmonad
         -- apps
         , ((modm,                  xK_p), spawn "env LANG=en_US.UTF-8 rofi -modi combi -show combi -combi-modi window,drun -show-icons")
         , ((modm .|. shiftMask,    xK_p), spawn "rofi -show run")
+        , ((modm,                  xK_d), spawn "dmenu_run")
+        , ((modm .|. shiftMask,    xK_d), spawn "~/.dmenu/dmenu-edit-configs.sh")
 
         -- instead function + f1(f7)
         , ((modm,                  xK_F1), spawn $ "lock-touchpad")
