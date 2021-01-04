@@ -31,6 +31,7 @@ import XMonad.Prompt.Window
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.FloatKeys
+import XMonad.Actions.GridSelect
 import XMonad.Actions.GroupNavigation
 import qualified XMonad.Actions.DynamicWorkspaceOrder as DO
 import XMonad.Actions.OnScreen
@@ -106,7 +107,7 @@ altblack = "#475359"
 altred = "#ff4f4d"
 altgreen = "#56d6ba"
 altyellow = "#c9c30e"
-altblue = "#c9c30e"
+altblue = "#5681b3"
 altmagenta = "#9c0082"
 altcyan = "#02b7c7"
 altwhite = "#a7b0b5"
@@ -181,6 +182,51 @@ currentScreen = gets (W.screen . W.current . windowset)
 
 spacesOnCurrentScreen :: WSType
 spacesOnCurrentScreen = WSIs (isOnScreen <$> currentScreen)
+
+------------
+--GridSelect
+------------
+
+myColorizer :: Window -> Bool -> X (String, String)
+myColorizer = colorRangeFromClassName
+                  (0x28,0x2c,0x34) -- lowest inactive bg
+                  (0x28,0x2c,0x34) -- highest inactive bg
+                  (0x00,0xCC,0xFF) -- active bg
+                  (0xc0,0xa7,0x9a) -- inactive fg
+                  (0x28,0x2c,0x34) -- active fg                  
+
+mygridConfig :: p -> GSConfig Window
+mygridConfig colorizer = (buildDefaultGSConfig myColorizer)
+    { gs_cellheight   = 40
+    , gs_cellwidth    = 200
+    , gs_cellpadding  = 6
+    , gs_originFractX = 0.5
+    , gs_originFractY = 0.5
+    }
+
+spawnSelected' :: [(String, String)] -> X ()
+spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
+    where conf = def
+                   { gs_cellheight   = 40
+                   , gs_cellwidth    = 200
+                   , gs_cellpadding  = 6
+                   , gs_originFractX = 0.5
+                   , gs_originFractY = 0.5
+                   }
+
+myAppGrid = [ ("Audacity", "audacity")
+                 , ("Deadbeef", "deadbeef")
+                 , ("Brave Browser", "brave browser")
+                 , ("Firefox", "firefox")
+                 , ("Visual Studio Code", "code")
+                 , ("Thunar", "thunar")
+                 , ("Gimp", "gimp")
+                 , ("Spotify", "spotify")
+                 , ("Nitrogen", "nitrogen")
+                 , ("WPS Writer", "wps Writer")
+                 , ("Spectacle", "spectacle")
+                 , ("Pamac", "pamac-manager")
+                 ]
 
 ------
 --Main
@@ -338,8 +384,20 @@ sideBar = drawer 0.005 0.3 (ClassName "Blueman-manager" `Or` ClassName "Pavucont
 modm = mod4Mask
 sModm = mod1Mask --sub mod mask
 
-keys' = [ -- forcus keys
-          ((modm,                  xK_Tab), windows W.focusUp)
+keys' = [--recompile xmonad
+
+          ((modm .|. controlMask,  xK_r), spawn "xmonad --recompile")
+        , ((modm .|. shiftMask,    xK_r), spawn "xmonad --restart")
+        , ((modm .|. shiftMask,    xK_q), io exitSuccess)
+         -- , ((modm, xK_q), restart "xmonad" True)
+
+         -- Grid Select 
+        , ((modm .|. shiftMask,    xK_t), spawnSelected' myAppGrid)                 -- grid select favorite apps
+        , ((modm .|. shiftMask,    xK_g), goToSelected $ mygridConfig myColorizer)  -- goto selected window
+        , ((modm .|. shiftMask,    xK_f), bringSelected $ mygridConfig myColorizer) -- bring selected window
+
+         -- forcus keys
+        , ((modm,                  xK_Tab), windows W.focusUp)
         , ((modm .|. shiftMask,    xK_Tab), windows W.focusDown)
         , ((modm,                  xK_w), kill)
         , ((modm,                  xK_a), sendMessage ToggleStruts)
@@ -368,10 +426,10 @@ keys' = [ -- forcus keys
         , ((modm,                  xK_o), sendMessage $ Move R)
 
         -- workspace keys
-        , ((modm .|. controlMask,    xK_h), moveTo Prev spacesOnCurrentScreen)
-        , ((modm .|. controlMask,    xK_l), moveTo Next spacesOnCurrentScreen)
-        , ((modm .|. shiftMask,  xK_h), shiftTo Prev spacesOnCurrentScreen >> moveTo  Prev spacesOnCurrentScreen)
-        , ((modm .|. shiftMask,  xK_l), shiftTo Next spacesOnCurrentScreen >> moveTo  Next spacesOnCurrentScreen)
+        , ((modm .|. controlMask,  xK_h), moveTo Prev spacesOnCurrentScreen)
+        , ((modm .|. controlMask,  xK_l), moveTo Next spacesOnCurrentScreen)
+        , ((modm .|. shiftMask,    xK_h), shiftTo Prev spacesOnCurrentScreen >> moveTo  Prev spacesOnCurrentScreen)
+        , ((modm .|. shiftMask,    xK_l), shiftTo Next spacesOnCurrentScreen >> moveTo  Next spacesOnCurrentScreen)
         -- ((sModm .|. controlMask, xK_l), nextWS)
         -- apps
         , ((modm,                  xK_p), spawn "env LANG=en_US.UTF-8 rofi -modi combi -show combi -combi-modi window,drun -show-icons")
@@ -396,11 +454,6 @@ keys' = [ -- forcus keys
 
         , ((modm,                  xK_s), windowPrompt myXPConfig Goto wsWindows)
         , ((modm .|. shiftMask,    xK_s), windowPrompt myXPConfig Bring allWindows)
-
-        , ((modm .|. controlMask,    xK_r), spawn "xmonad --recompile")
-        , ((modm .|. shiftMask,    xK_r), spawn "xmonad --restart")
-        , ((modm .|. shiftMask,    xK_q), io exitSuccess)
-        -- , ((modm, xK_q), restart "xmonad" True)
         ]
         ++
         -- workspace swicher
