@@ -82,7 +82,7 @@ import XMonad.Layout.WindowNavigation
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
-import XMonad.Util.Run (spawnPipe) 
+import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.WindowProperties
 
 import qualified XMonad.StackSet as W --hiding (focusMaster, workspaces)
@@ -261,10 +261,9 @@ main = do
 ---------
 
 myStartupHook = do
-    -- spawn "feh --bg-scale ~/Pictures/Wallpapers/wall.jpg"
+    spawn "feh --bg-scale ~/Pictures/Wallpapers/wall.jpg"
     spawn "bash .config/polybar/launch.sh"
-    spawn "nitrogen --restore"
-    spawn "picom -b"
+    spawn "picom --experimental-backends &"
     spawn "nm-applet"
 
 ------
