@@ -68,4 +68,4 @@ case "$choice" in
 		exit 1
 	;;
 esac
-alacritty -e subl "$choice"
+alacritty -e code "$choice"

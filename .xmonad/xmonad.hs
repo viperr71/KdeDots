@@ -403,7 +403,7 @@ keys' = [--recompile xmonad
         , ((modm,                  xK_a), sendMessage ToggleStruts)
         , ((modm,                  xK_k), focusUp)
         , ((modm,                  xK_j), focusDown)
-        , ((modm,                  xK_Return), focusMaster)
+        , ((modm,                  xK_f), focusMaster)
         , ((modm,                  xK_h), withFocused hideWindow)
         , ((modm .|. shiftMask,    xK_space), popNewestHiddenWindow) -- pop up latest hidden window
         , ((modm,                  xK_l), onGroup W.focusUp')
@@ -412,6 +412,7 @@ keys' = [--recompile xmonad
         , ((modm .|. shiftMask,    xK_k), windows W.swapUp)
         , ((modm .|. shiftMask,    xK_j), windows W.swapDown)
         , ((modm .|. controlMask,  xK_Return), windows W.swapMaster)
+
         -- tabbed keys
         , ((modm .|. controlMask,  xK_k), sendMessage $ pullGroup U)
         , ((modm .|. controlMask,  xK_j), sendMessage $ pullGroup D)
@@ -431,11 +432,13 @@ keys' = [--recompile xmonad
         , ((modm .|. shiftMask,    xK_h), shiftTo Prev spacesOnCurrentScreen >> moveTo  Prev spacesOnCurrentScreen)
         , ((modm .|. shiftMask,    xK_l), shiftTo Next spacesOnCurrentScreen >> moveTo  Next spacesOnCurrentScreen)
         -- ((sModm .|. controlMask, xK_l), nextWS)
+
         -- apps
         , ((modm,                  xK_p), spawn "env LANG=en_US.UTF-8 rofi -modi combi -show combi -combi-modi window,drun -show-icons")
         , ((modm .|. shiftMask,    xK_p), spawn "rofi -show run")
         , ((modm,                  xK_d), spawn "dmenu_run")
         , ((modm .|. shiftMask,    xK_d), spawn "~/.dmenu/dmenu-edit-configs.sh")
+        , ((modm,                  xK_Return), spawn "st")
 
         -- instead function + f1(f7)
         , ((modm,                  xK_F1), spawn $ "lock-touchpad")
