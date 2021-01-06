@@ -18,8 +18,8 @@ gparted
 # Restarting polybar
 $LAUNCH &
 
-elif  [[ $1 = "-Nitrogen" ]]; then
-nitrogen
+elif  [[ $1 = "-Sublime" ]]; then
+subl
 # Restarting polybar
 $LAUNCH &
 

@@ -31,12 +31,12 @@ MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'Search :' \
 -color-normal "$BACKGROUND_ALT,$FOREGROUND,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
 -color-active "$BACKGROUND,$ORANGE,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
 -color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
-<<< " Spectacle| Nitrogen| Pamac| Gparted| System-Settings")"
+<<< " Spectacle| Sublime| Pamac| Gparted| System-Settings")"
             case "$MENU" in
 				## Commands
 				*System-Settings) $SDIR/utilities.sh -System-Settings ;;
 				*Pamac) $SDIR/utilities.sh -Pamac ;;
 				*Gparted) $SDIR/utilities.sh -Gparted ;;
-				*Nitrogen) $SDIR/utilities.sh -Nitrogen ;;
+				*Sublime) $SDIR/utilities.sh -Sublime ;;
                 *Spectacle) $SDIR/utilities.sh -Spectacle			
             esac
