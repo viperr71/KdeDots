@@ -10,7 +10,7 @@ configuration
 {
 	font:							"Fira Sans Medium 8";
 	foreground:						#f8f8f2ff;
-	background:						#191919;
+	background:						#151718;
 	foreground-alt:					#f8f8f255;
 	background-alt:					#19161714;
 	active-background:				#5681b3;

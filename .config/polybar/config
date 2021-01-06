@@ -36,7 +36,7 @@ format-margin =
 format-offset =
 
 [colors]
-background = #191919
+background = #151718
 foreground = #D8DEE9
 alert      = #bd2c40
 white      = #dddddd
