@@ -261,7 +261,7 @@ main = do
 ---------
 
 myStartupHook = do
-    spawn "feh --bg-scale ~/Pictures/Wallpapers/wall.jpg"
+    spawn "~/.fehbg &"
     spawn "bash .config/polybar/launch.sh"
     spawn "picom --experimental-backends &"
     spawn "nm-applet"

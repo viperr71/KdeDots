@@ -49,7 +49,7 @@ blue       = #5681b3
 magenta    = #B48EAD
 purple     = #8d62a9 
 cyan       = #8abdb6
-orange     = #ff753f
+orange     = #ff1212
 
 ################################################################################
 ################################################################################
@@ -58,8 +58,8 @@ orange     = #ff753f
 ################################################################################
 
 [bar/xmonad]
-monitor = ${env:MONITOR}
-;monitor-fallback = HDMI1
+;monitor = ${env:MONITOR}
+monitor = HDMI1
 monitor-strict = false
 override-redirect = false
 width = 100%
@@ -122,23 +122,23 @@ tray-background = ${colors.background}
 
 ################################################################################
 ################################################################################
-############                  MAINBAR-XMONAD-EXTRA                  ############
+############                  SECONDBAR-XMONAD2                     ############
 ################################################################################
 ################################################################################
 
-[bar/mainbar-xmonad-extra]
-monitor = ${env:MONITOR}
-;monitor-fallback = HDMI1
+[bar/xmonad2]
+;monitor = ${env:MONITOR}
+monitor = eDP1
 monitor-strict = false
 override-redirect = false
 width = 100%
-height = 30
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
 fixed-center = true
-bottom = true
-separator = |
+bottom = false
+separator =
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -149,39 +149,45 @@ line-color = #f00
 ;border-size = 2
 ;border-left-size = 25
 ;border-right-size = 25
-border-top-size = 10
-;border-bottom-size = 25
+;border-top-size = 0
+;border-bottom-size = 2
 border-color = #00000000
 
 padding-left = 0
 padding-right = 1
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 0
+module-margin-right = 0
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
 enable-ipc = true
 
-;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:size=10;0"
-font-1 = "FontAwesome:size=13;0"
-font-2 = "Noto Sans:size=10;0"
-font-3 = "Noto Sans Mono:size=10;0"
-font-4 = "FontAwesome5Brands:size=13;0"
+font-0  = "UbuntuMono Nerd Font:size=10;2"
+font-1  = "UbuntuMono Nerd Font:size=16;3"
+font-2  = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
+font-3  = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
+font-4  = "Font Awesome 5 Brands:pixelsize=8;1"
+font-5  = "FontAwesome:pixelsize=9;2"
+font-6  = "Hack Nerd Font:size=13;2"
+font-7  = "fontello:pixelsize=20;2"
+font-8  = "Helvetica:pixelsize=9;2"
+font-9  = "Monaco:pixelsize=9;2"
+font-10 = "unifont:fontformat=truetype:size=8:antialias=false;0"
+font-11 = "siji:pixelsize=9;1"
 
-modules-left = load-average
-modules-center = networkspeeddown networkspeedup
-modules-right = filesystem
+modules-left = rofi ewmh xmonad xwindow 
+modules-center = mpd spotify 
+modules-right = arrow1 kernel arrow2 memory arrow3 cpu arrow2 pavolume arrow3 wired-network arrow2 weather arrow3 utilities  arrow2 date arrow3 powerkde
 
-;tray-detached = false
-;tray-offset-x = 0
-;tray-offset-y = 0
-;tray-padding = 2
-;tray-maxsize = 20
-;tray-scale = 1.0
-;tray-position = right
-;tray-background = ${colors.background}
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 2
+tray-maxsize = 20
+tray-scale = 1.0
+tray-position = right
+tray-background = ${colors.background}
 
 ################################################################################
 ################################################################################
@@ -813,14 +819,6 @@ ramp-signal-5 = ▆
 ramp-signal-6 = ▇
 ramp-signal-7 = █
 ramp-signal-foreground = ${colors.background}
-
-################################################################################
-
-[module/workspaces-xmonad]
-type = custom/script
-exec = tail -F /tmp/.xmonad-workspace-log
-exec-if = [ -p /tmp/.xmonad-workspace-log ]
-tail = true
 
 ################################################################################
 
