@@ -109,7 +109,7 @@ font-11 = "siji:pixelsize=9;1"
 
 modules-left = rofi ewmh xmonad xwindow 
 modules-center = mpd spotify 
-modules-right = arrow1 kernel arrow2 memory arrow3 cpu arrow2 pavolume arrow3 wired-network arrow2 weather arrow3 utilities  arrow2 date arrow3 sysmenu
+modules-right = arrow1 kernel arrow2 memory arrow3 cpu arrow2 pavolume arrow3 wired-network arrow2 weather arrow3 utilities  arrow2 date arrow3 powerkde
 
 tray-detached = false
 tray-offset-x = 0
@@ -184,8 +184,8 @@ modules-right = filesystem
 ;tray-background = ${colors.background}
 
 ################################################################################
-###############################################################################
-############                       MODULES ARROWS                     ############
+################################################################################
+############                       MODULES ARROWS                   ############
 ################################################################################
 ################################################################################
 
@@ -214,7 +214,7 @@ content-foreground = ${colors.grey}
 content-background = ${colors.blue}
 
 ################################################################################
-###############################################################################
+################################################################################
 ############                       MODULES A-Z                      ############
 ################################################################################
 ################################################################################
@@ -596,6 +596,17 @@ scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 format-foreground = ${colors.foreground}
 format-background = ${colors.blue}
+
+################################################################################
+
+[module/powerkde]
+type = custom/script 
+label-padding = 0
+label-foreground = ${colors.white}
+label-background = ${colors.grey}
+interval = 120
+exec = echo "    "
+click-left = qdbus org.kde.ksmserver /KSMServer logout 1 3 3
 
 ################################################################################
 
